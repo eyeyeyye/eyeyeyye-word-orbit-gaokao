@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2b1717" />
+  <meta name="description" content="Word Orbit：3500 词、300 高频短语与 200 读后续写句的本地优先高考英语学习舱。" />
+  <title>Word Orbit · 高考英语学习舱</title>
+  <link rel="icon" href="public/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div id="boot" class="boot">
+    <div class="orbit-mark"><span>W</span></div>
+    <p>正在点亮你的英语学习星图…</p>
+  </div>
+
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar glass">
+      <a class="brand" href="#home" data-nav="home" aria-label="返回首页">
+        <span class="brand-mark">W</span>
+        <span><strong>Word Orbit</strong><small>高考英语学习舱</small></span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <button data-nav="home" class="active"><span>⌂</span>今日星图</button>
+        <button data-nav="learn"><span>◉</span>单词学习</button>
+        <button data-nav="vocab"><span>◇</span>3500 词库</button>
+        <button data-nav="phrases"><span>∞</span>高频短语</button>
+        <button data-nav="writing"><span>✦</span>续写句舱</button>
+        <button data-nav="progress"><span>↗</span>学习数据</button>
+        <button data-nav="about"><span>i</span>内容说明</button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="streak-chip"><span>🔥</span><strong id="side-streak">0</strong><small>连续学习</small></div>
+        <p>进度只保存在本机浏览器</p>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar glass">
+        <button id="menu-btn" class="icon-btn menu-btn" aria-label="打开菜单">☰</button>
+        <div class="focus-stat"><span class="pulse-dot"></span><span>今日专注</span><strong id="today-minutes">0 分钟</strong></div>
+        <div class="top-actions">
+          <button id="global-search-btn" class="search-trigger" aria-label="搜索词库"><span>⌕</span><span>搜索单词</span><kbd>/</kbd></button>
+          <button id="export-btn" class="icon-btn" title="导出进度" aria-label="导出进度">⇩</button>
+          <label class="icon-btn" title="导入进度" aria-label="导入进度">⇧<input id="import-input" type="file" accept="application/json" hidden /></label>
+          <div class="profile-dot" title="本地学习者">L</div>
+        </div>
+      </header>
+      <main id="view" tabindex="-1"></main>
+      <footer>
+        <span>Word Orbit · 纯静态本地学习</span>
+        <span>无登录 · 无境外 API · 支持进度导出</span>
+      </footer>
+    </section>
+  </div>
+
+  <dialog id="search-dialog" class="search-dialog glass">
+    <form method="dialog" class="dialog-head"><strong>搜索 3500 词</strong><button class="icon-btn" aria-label="关闭">×</button></form>
+    <label class="dialog-search"><span>⌕</span><input id="dialog-search-input" autocomplete="off" placeholder="输入英文单词或中文释义" /></label>
+    <div id="dialog-search-results" class="dialog-results"></div>
+  </dialog>
+
+  <dialog id="word-dialog" class="word-dialog glass">
+    <form method="dialog" class="dialog-head"><strong>词汇详情</strong><button class="icon-btn" aria-label="关闭">×</button></form>
+    <div id="word-dialog-body"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
+
