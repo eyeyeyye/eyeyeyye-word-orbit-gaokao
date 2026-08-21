@@ -1,0 +1,14 @@
+{
+  "name": "word-orbit-gaokao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A mainland-friendly, local-first Gaokao English learning observatory.",
+  "scripts": {
+    "check:content": "node scripts/check-content.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-content.mjs && node scripts/build.mjs"
+  },
+  "license": "MIT"
+}
+
+
